@@ -88,7 +88,9 @@ void loop() {
   }
   
   else if (digitalRead(greenbtn1) == 0) {
-    Keyboard.write(KEY_F17);
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press(0xCB);
+    Keyboard.releaseAll();
     delay(100);
   }
 
