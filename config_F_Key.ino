@@ -2,7 +2,7 @@ int stateswitch1, stateswitch2, stateswitch3;
 
 #include <Keyboard.h>
 
-#define KEY_F13  0xF0 // 0x68 + 0x88
+#define KEY_F13 0xF0 // 0x68 + 0x88
 #define KEY_F14 0xF1 // 0x69 + 0x88
 #define KEY_F15 0xF2 // 0x6A + 0x88
 #define KEY_F16 0xF3 // 0x6B + 0x88
@@ -32,7 +32,8 @@ int stateswitch1, stateswitch2, stateswitch3;
 #define switch2 14
 #define switch3 7
 
-void setup() {
+void setup()
+{
   pinMode(redbtn1, INPUT_PULLUP);
   pinMode(redbtn2, INPUT_PULLUP);
   pinMode(redbtn3, INPUT_PULLUP);
@@ -56,75 +57,102 @@ void setup() {
 
   Serial.begin(9600);
   Keyboard.begin();
-
 }
 
-void loop() {
-    
-  if (digitalRead(redbtn1) == 0) {
-    Keyboard.write(KEY_F24);
-    delay(100);
+void loop()
+{
+
+  if (digitalRead(redbtn1) == 0)
+  {
+    Keyboard.press(KEY_F24);
+    delay(500);
+    Keyboard.releaseAll();
   }
-  else if (digitalRead(redbtn2) == 0) {
-    Keyboard.write(KEY_F23);
-    delay(100);
+  else if (digitalRead(redbtn2) == 0)
+  {
+    Keyboard.press(KEY_F23);
+    delay(500);
+    Keyboard.releaseAll();
   }
-  else if (digitalRead(redbtn3) == 0) {
-    Keyboard.write(KEY_F21);
-    delay(100);
+  else if (digitalRead(redbtn3) == 0)
+  {
+    Keyboard.press(KEY_F21);
+    delay(500);
+    Keyboard.releaseAll();
   }
-  else if (digitalRead(redbtn4) == 0) {
-    Keyboard.write(KEY_F20);
-    delay(100);
+  else if (digitalRead(redbtn4) == 0)
+  {
+    Keyboard.press(KEY_F20);
+    delay(500);
+    Keyboard.releaseAll();
   }
-  
-  else if (digitalRead(blackbtn1) == 0) {
-    Keyboard.write(KEY_F19);
-    delay(100);
+
+  else if (digitalRead(blackbtn1) == 0)
+  {
+    Keyboard.press(KEY_F19);
+    delay(500);
+    Keyboard.releaseAll();
   }
-  else if (digitalRead(blackbtn2) == 0) {
-    Keyboard.write(KEY_F18);
-    delay(100);
-  }
-  
-  else if (digitalRead(greenbtn1) == 0) {
-    Keyboard.press(KEY_LEFT_CTRL);
-    Keyboard.press(0xCB);
+  else if (digitalRead(blackbtn2) == 0)
+  {
+    Keyboard.press(KEY_F18);
+    delay(500);
     Keyboard.releaseAll();
     delay(100);
   }
 
-  
-  else if (digitalRead(greenbtn2) == 0) {
-    Keyboard.write(KEY_F16);
+  else if (digitalRead(greenbtn1) == 0)
+  {
+    Keyboard.press(KEY_F17);
+    delay(500);
+    Keyboard.releaseAll();
     delay(100);
   }
-  
-  else if (digitalRead(greenbtn3) == 0) {
-    Keyboard.write(KEY_F15);
-    delay(100);
+
+  else if (digitalRead(greenbtn2) == 0)
+  {
+    Keyboard.press(KEY_F16);
+    delay(500);
+    Keyboard.releaseAll();
   }
-  else if (digitalRead(greenbtn4) == 0) {
+
+  else if (digitalRead(greenbtn3) == 0)
+  {
+    Keyboard.press(KEY_F15);
+    delay(500);
+    Keyboard.releaseAll();
+  }
+  else if (digitalRead(greenbtn4) == 0)
+  {
     Keyboard.press(KEY_LEFT_CTRL);
     Keyboard.press(0xF7);
+    delay(500);
     Keyboard.releaseAll();
     delay(100);
   }
 
-  else if(digitalRead(switch1) != stateswitch1){
+  else if (digitalRead(switch1) != stateswitch1)
+  {
     stateswitch1 = digitalRead(switch1);
-    Keyboard.write(KEY_F14);
-  }
-  else if(digitalRead(switch2) != stateswitch2){
-    stateswitch2 = digitalRead(switch2);
-    Keyboard.write(KEY_F13);
-  }
-  else if(digitalRead(switch3) != stateswitch3){
-    stateswitch3 = digitalRead(switch3);
-       Keyboard.press(KEY_LEFT_CTRL);
-    Keyboard.press(0xF8);
+    Keyboard.press(KEY_F14);
+    delay(500);
     Keyboard.releaseAll();
   }
-  
+  else if (digitalRead(switch2) != stateswitch2)
+  {
+    stateswitch2 = digitalRead(switch2);
+    Keyboard.press(KEY_F13);
+    delay(500);
+    Keyboard.releaseAll();
+  }
+  else if (digitalRead(switch3) != stateswitch3)
+  {
+    stateswitch3 = digitalRead(switch3);
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press(0xF8);
+    delay(500);
+    Keyboard.releaseAll();
+  }
+
   delay(100);
 }
