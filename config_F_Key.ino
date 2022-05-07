@@ -1,4 +1,4 @@
-int stateswitch1, stateswitch2;
+int stateswitch1, stateswitch2, stateswitch3;
 
 #include <Keyboard.h>
 
@@ -30,6 +30,7 @@ int stateswitch1, stateswitch2;
 
 #define switch1 A3
 #define switch2 14
+#define switch3 7
 
 void setup() {
   pinMode(redbtn1, INPUT_PULLUP);
@@ -47,9 +48,11 @@ void setup() {
 
   pinMode(switch1, INPUT_PULLUP);
   pinMode(switch2, INPUT_PULLUP);
+  pinMode(switch3, INPUT_PULLUP);
 
   stateswitch1 = digitalRead(switch1);
   stateswitch2 = digitalRead(switch2);
+  stateswitch3 = digitalRead(switch3);
 
   Serial.begin(9600);
   Keyboard.begin();
@@ -113,6 +116,12 @@ void loop() {
   else if(digitalRead(switch2) != stateswitch2){
     stateswitch2 = digitalRead(switch2);
     Keyboard.write(KEY_F13);
+  }
+  else if(digitalRead(switch3) != stateswitch3){
+    stateswitch3 = digitalRead(switch3);
+       Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press(0xF8);
+    Keyboard.releaseAll();
   }
   
   delay(100);
