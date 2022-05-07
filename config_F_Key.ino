@@ -135,14 +135,14 @@ void loop()
   {
     stateswitch1 = digitalRead(switch1);
     Keyboard.press(KEY_F14);
-    delay(500);
+    delay(50);
     Keyboard.releaseAll();
   }
   else if (digitalRead(switch2) != stateswitch2)
   {
     stateswitch2 = digitalRead(switch2);
     Keyboard.press(KEY_F13);
-    delay(500);
+    delay(50);
     Keyboard.releaseAll();
   }
   else if (digitalRead(switch3) != stateswitch3)
@@ -150,7 +150,7 @@ void loop()
     stateswitch3 = digitalRead(switch3);
     Keyboard.press(KEY_LEFT_CTRL);
     Keyboard.press(0xF8);
-    delay(500);
+    delay(50);
     Keyboard.releaseAll();
   }
 
