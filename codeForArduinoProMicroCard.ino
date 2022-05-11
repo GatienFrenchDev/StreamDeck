@@ -1,5 +1,8 @@
 int stateswitch1, stateswitch2, stateswitch3;
 
+// if you are using a Pro Micro card select Arduino Micro card type in the Arduino IDE!
+
+
 #include <Keyboard.h>
 
 #define KEY_F13 0xF0 // 0x68 + 0x88
